@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="http://localhost/spring_mvc/common/css/main_v1_220901.css" />
+
+<!-- jQuery google CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	$("#getBtn").click(function(){
+		document.frm.method="GET";
+		alert("요청방식"+document.frm.method);
+		$("[name='frm']").submit();
+	})
+	$("#postBtn").click(function(){
+		document.frm.method="POST";
+		alert("요청방식"+document.frm.method);
+		$("[name='frm']").submit();
+	})
+});
+</script>
+</head>
+<body>
+<ul>
+<li><a href="hello.do">Spring MVC 호출</a></li>
+<li>
+	<form method="get" action="getMethod.do">
+		<input type="submit" value="GET요청" class="inputBtn"/>
+	</form>
+</li>
+<li>
+	<form method="post" action="postMethod.do">
+		<input type="submit" value="POST요청" class="inputBtn"/>
+	</form>
+</li>
+<li>
+	<form name="frm" action="get_post_method.do">
+		<input type="button" value="GET요청" class="inputBtn" id="getBtn"/>
+		<input type="button" value="POST요청" class="inputBtn" id="postBtn"/>
+	</form>
+</li>
+<li>여러 요청을 하나의 method로 처리 <br>
+	<a href="a.do">a.do요청</a>
+	<a href="b.do">b.do요청</a>
+	<a href="c.do">c.do요청</a>
+	<a href="yana.do">yana.do요청</a>
+</li>
+<li>
+	<!-- 하위 경로로 같은 이름의 요청 URL을 사용할 수 있다. -->
+	<a href="sub/sub_request.do">하위경로</a>
+</li>
+<li>
+	<a href="void_test.do">method의 반환형이 void</a>
+</li>
+<li>
+	<a href="sub_jsp.do">응답jsp가 views의 하위 폴더에 있는 경우</a>
+</li>
+<li>
+	<a href="req_form.do">HttpServletREquest사용폼</a>
+</li>
+<li>
+	<a href="single_form.do">단일형을 사용한 web parameter</a>
+</li>
+<li>
+	<a href="vo_form.do">VO을 사용한 web parameter</a>
+</li>
+<li>
+	<a href="day1102/view_data_list.jsp">Controller에서 view로 데이터 전달</a>
+</li>
+<li>
+	<a href="day1104/category.do">AJAX사용</a>
+</li>
+<li>
+	<a href="day1108/exception1.do">예외발생1(DispatcherServlet)사용</a>
+</li>
+<li>
+	<a href="day1108/exception2.do">예외발생2 (개발자가 예외처리)</a>
+</li>
+<li>
+	<a href="day1110/use_di.do">DI사용</a>
+</li>
+<li>
+	<a href="day1110/use_di2.do">Autowired를 사용한 DI사용</a>
+</li>
+</ul>
+</body>
+</html>
