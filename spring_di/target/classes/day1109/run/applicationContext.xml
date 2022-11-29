@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<!-- <bean id="객체명" class="클래스" scope="single"/>: 무조건 singleton pattern으로 객체가 생성 -->
+<!-- scope="singleton|prototype"
+	singleton - 객체를 하나만 생성하고 하는 패턴.
+				사용하든 사용하지 않든 만들어두고 필요한 때 사용
+	prototype - 객체를 여러개 생성하고 사용. 
+				사용할 때 객체를 만들고 사용
+				미리객체를 만들어두지 않음 -->
+	
+<!-- 1. 의존성 주입할 객체를 생성 -->
+<bean id="od" class="day1108.dao.OracleDAO"/>
+<bean id="md" class="day1108.dao.MySQLDAO"/>
+
+<!-- 2. 의존성 주입받을 객체를 생성하고 의존성 주입 -->
+<bean id="si" class="day1108.service.ServiceImpl">
+<constructor-arg ref="od"/>
+</bean>
+
+</beans>
